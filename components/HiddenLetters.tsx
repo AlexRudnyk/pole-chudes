@@ -4,6 +4,8 @@ import tasks from "@/tasks";
 import React, { useEffect, useState } from "react";
 import { Gamer, Letter, LetterInput } from ".";
 import { getNextUniqueIndex } from "@/utils";
+import Image from "next/image";
+import Yakubovich from "../public/yakubovich.jpg";
 
 const HiddenLetters = ({ index }: { index: number }) => {
   const [letter, setLetter] = useState<string>("");
@@ -56,13 +58,18 @@ const HiddenLetters = ({ index }: { index: number }) => {
       <Gamer secondGamer={secondGamer} />
       {wordGuessed && (
         <div className="flex justify-center">
-          <button
-            type="button"
-            onClick={handleNextQuestion}
-            className="p-3 bg-red-600 text-white"
-          >
-            Next Question
-          </button>
+          <div className="mr-12">
+            <Image src={Yakubovich} width={259} height={194} alt="leader" />
+          </div>
+          <div>
+            <button
+              type="button"
+              onClick={handleNextQuestion}
+              className="p-3 bg-blue-700 text-white rounded-2xl"
+            >
+              Следующий
+            </button>
+          </div>
         </div>
       )}
     </>

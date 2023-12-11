@@ -49,7 +49,7 @@ const LetterInput = ({ onSubmit }: { onSubmit: (letter: string) => void }) => {
             type="submit"
             className="p-3 bg-blue-700 rounded-2xl text-white"
           >
-            Submit
+            Ввести
           </button>
         </Form>
       </Formik>
