@@ -1,4 +1,4 @@
-import { HiddenLetters } from "@/components";
+import { HiddenLetters, Layout } from "@/components";
 import { getNextUniqueIndex, getRandomIntInclusive } from "@/utils";
 
 export default function Home() {
@@ -6,8 +6,10 @@ export default function Home() {
   const uniqueIndex = getNextUniqueIndex(index);
 
   return (
-    <main className="p-5">
-      <HiddenLetters index={uniqueIndex} />
-    </main>
+    <Layout>
+      <main className="p-5">
+        <HiddenLetters index={uniqueIndex} />
+      </main>
+    </Layout>
   );
 }

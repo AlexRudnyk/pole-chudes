@@ -12,8 +12,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className="w-[1280px] mx-auto">{children}</body>
+    <html lang="ru">
+      <body>{children}</body>
     </html>
   );
 }

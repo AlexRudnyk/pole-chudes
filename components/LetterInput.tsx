@@ -9,7 +9,7 @@ const schema = yup.object().shape({
     .string()
     .matches(/^[а-яА-Я]+$/u, "Только буквы кириллицы")
     .max(1, "Максимум 1 символ")
-    .required("Требуется буква"),
+    .required(),
 });
 
 const LetterInput = ({ onSubmit }: { onSubmit: (letter: string) => void }) => {
@@ -32,13 +32,14 @@ const LetterInput = ({ onSubmit }: { onSubmit: (letter: string) => void }) => {
         onSubmit={handleFormSubmit}
         validationSchema={schema}
       >
-        <Form className="flex justify-center items-center mb-12">
+        <Form className="flex justify-center items-center mb-24">
           <p className="text-3xl mr-6">Введите букву:</p>
           <div className="relative">
             <Field
               type="text"
               name="letter"
               autoComplete="off"
+              autoFocus="true"
               className="p-3 outline outline-1 outline-gray-300 w-14 h-20 mr-10 text-3xl"
             />
             <div className="absolute top-20 text-red-600">
