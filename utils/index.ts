@@ -12,13 +12,13 @@ export function getNextUniqueIndex(index: number): number {
 
     return index;
   } else {
-    const nextIndex = getRandomIntInclusive(0, tasks.length - 1);
+    const nextIndex = getRandomIntInclusive();
     return getNextUniqueIndex(nextIndex);
   }
 }
 
-export function getRandomIntInclusive(min: number, max: number): number {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+export function getRandomIntInclusive(): number {
+  // Генерация случайного индекса
+  const randomIndex = Math.floor(Math.random() * tasks.length);
+  return randomIndex;
 }

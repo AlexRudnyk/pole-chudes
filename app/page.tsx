@@ -1,9 +1,8 @@
 import { HiddenLetters } from "@/components";
-import tasks from "@/tasks";
 import { getNextUniqueIndex, getRandomIntInclusive } from "@/utils";
 
 export default function Home() {
-  const index = getRandomIntInclusive(0, tasks.length - 1);
+  const index = getRandomIntInclusive();
   const uniqueIndex = getNextUniqueIndex(index);
 
   return (
