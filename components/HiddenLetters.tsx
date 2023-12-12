@@ -37,7 +37,7 @@ const HiddenLetters = ({ index }: { index: number }) => {
   }
 
   useEffect(() => {
-    if (guessedLetter) {
+    if (guessedLetter && !guessed.includes(guessedLetter)) {
       setGuessed([...guessed, guessedLetter]);
     }
   }, [guessedLetter]);
