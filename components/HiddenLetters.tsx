@@ -3,17 +3,17 @@
 import tasks from "@/tasks";
 import React, { useEffect, useState } from "react";
 import { Gamer, Letter, LetterInput } from ".";
-import { getNextUniqueIndex } from "@/utils";
 import Image from "next/image";
 import Yakubovich from "../public/yakubovich.jpg";
+import { getNextUniqueIndex } from "@/utils";
 
-const HiddenLetters = ({ index }: { index: number }) => {
+const HiddenLetters = () => {
   const [letter, setLetter] = useState<string>("");
   const [guessed, setGuessed] = useState<string[]>([]);
   const [secondGamer, setsecondGamer] = useState<boolean>(false);
-  const [nextIndex, setNextIndex] = useState<number>(index);
+  const [index, setIndex] = useState<number>(0);
 
-  const answer = tasks[nextIndex].answer.split("");
+  const answer = tasks[index].answer.split("");
   const guessedLetter = answer.find((item) => item === letter);
 
   const uniqueLettersInAnswer = [...new Set(answer)];
@@ -23,7 +23,7 @@ const HiddenLetters = ({ index }: { index: number }) => {
   const handleNextQuestion = () => {
     setLetter("");
     setGuessed([]);
-    setNextIndex(() => getNextUniqueIndex(nextIndex));
+    setIndex(() => getNextUniqueIndex(index));
   };
 
   const toggleGamer = () => {
@@ -48,7 +48,7 @@ const HiddenLetters = ({ index }: { index: number }) => {
 
   return (
     <>
-      <h1 className="text-3xl mb-12">Вопрос: {tasks[nextIndex].question}</h1>
+      <h1 className="text-3xl mb-12">Вопрос: {tasks[index].question}</h1>
       <LetterInput onSubmit={handleletterSubmit} />
       <ul className="flex justify-center items-center mb-16">
         {answer.map((letter: string, index) => (
